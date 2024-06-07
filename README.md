@@ -24,6 +24,22 @@ To use `dotnet-tpl`, you need to have Go installed on your machine. If you don't
     go build -o dotnet-tpl
     ```
 
+4. Add the binary to your PATH environment variable:
+
+    - **Windows:**
+
+        ```sh
+        set PATH=%PATH%;<path-to-dotnet-tpl-binary>
+        ```
+
+    - **Linux/macOS:**
+
+        ```sh
+        export PATH=$PATH:<path-to-dotnet-tpl-binary>
+        ```
+
+5. Alternatively, if you prefer a pre-built binary, download it from the [bin](/bin/) folder according to your OS.
+
 ## Usage
 
 The `dotnet-tpl` CLI tool generates .NET templates based on the specified template type.

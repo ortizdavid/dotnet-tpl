@@ -2,6 +2,7 @@ package generators
 
 import (
 	apiTemplates "github.com/ortizdavid/dotnet-tpl/templates/api"
+	colTemplates "github.com/ortizdavid/dotnet-tpl/templates/api/api_collections"
 	dbTemplates "github.com/ortizdavid/dotnet-tpl/templates/api/database"
 	fileTemplates "github.com/ortizdavid/dotnet-tpl/templates/api/files"
 	extTemplates "github.com/ortizdavid/dotnet-tpl/templates/api/extensions"
@@ -19,6 +20,7 @@ func (ApiGenerator) Generate(templateType string) error {
 	var fileManager filemanager.FileManager
 	// templates Structs
 	var apiTpl apiTemplates.ApiTemplate
+	var colTpl colTemplates.ApiCollectionsTemplate
 	var dbTpl dbTemplates.ApiDatabaseTemplate
 	var fileTpl fileTemplates.ApiFilesTemplate
 	var extTpl extTemplates.ApiExtensionsTemplate
@@ -48,6 +50,8 @@ func (ApiGenerator) Generate(templateType string) error {
 	programCsFile := "Program.cs"
 
 	// Files inner folder ------------------------------
+	// files from /_Api_Collections
+	postmanCollectionFile := "postman_collection.json"
 	// files from /_Database
 	databaseFile := "db_dotnet_product.sql"
 	// files from /_Files
@@ -111,6 +115,8 @@ func (ApiGenerator) Generate(templateType string) error {
 	fileManager.CreateSingleFolder(controllersFolder)
 
 	// Create Files in folders
+	// files from /_Api_Collections
+	fileManager.CreateSingleFile(apiCollectionsFolder, postmanCollectionFile)
 	// files from /_Database
 	fileManager.CreateSingleFile(databaseFolder, databaseFile)
 	// files from /_Files
@@ -161,6 +167,8 @@ func (ApiGenerator) Generate(templateType string) error {
 	fileManager.WriteFile(".", appsettingsFile, apiTpl.Appsettings())
 	fileManager.WriteFile(".", packagesFile, apiTpl.Packages())
 	fileManager.WriteFile(".", programCsFile, apiTpl.ProgramCs())
+	// Write to files from /_Api_Collections
+	fileManager.WriteFile(apiCollectionsFolder, postmanCollectionFile, colTpl.PostmanCollectionsJson())
 	// Write to files from /_Database
 	fileManager.WriteFile(databaseFolder, databaseFile, dbTpl.DbDotnetProductSQL())
 

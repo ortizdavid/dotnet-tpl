@@ -1,8 +1,7 @@
 package templates
 
 func (ApiHelpersTemplate) CapacityUnitCs() string  {
-return `
-namespace AspNetCoreRestApi.Helpers
+return `namespace AspNetCoreRestApi.Helpers
 {
     public class CapacityUnit
     {

@@ -1,8 +1,7 @@
 package templates
 
 func (ApiExtensionsTemplate) AuthExtensionsCs() string {
-return `
-using System.Text;
+return `using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Npgsql.Replication;
@@ -11,7 +10,6 @@ namespace AspNetCoreRestApi.Extensions
 {
     public static class AuthExtensions
     {
-        
         public static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)  
         {
             var jwtSettings = configuration.GetSection("JwtSettings");

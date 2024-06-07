@@ -10,11 +10,11 @@ import (
 )
 
 func main() {
-	templateType := flag.String("template", "", "Template type (mvc/webapi)")
+	templateType := flag.String("template", "", "Template type (mvc/wapi)")
 	flag.Parse()
 
 	if *templateType == "" {
-		fmt.Println("Usage: dotnet-tpl --template <TEMPLATE> --name <NAME>")
+		fmt.Println("Usage: dotnet-tpl --template <TEMPLATE>")
 		os.Exit(1)
 	}
 

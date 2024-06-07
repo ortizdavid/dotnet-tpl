@@ -1,8 +1,7 @@
 package templates
 
 func (ApiExtensionsTemplate) RepositoryExtensionsCs() string {
-return `
-using Microsoft.Extensions.DependencyInjection;
+return `using Microsoft.Extensions.DependencyInjection;
 using AspNetCoreRestApi.Repositories;
 
 namespace AspNetCoreRestApi.Extensions
