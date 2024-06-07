@@ -1,15 +1,16 @@
 package generators
 
 import (
+	"github.com/ortizdavid/dotnet-tpl/helpers"
 	apiTemplates "github.com/ortizdavid/dotnet-tpl/templates/api"
 	colTemplates "github.com/ortizdavid/dotnet-tpl/templates/api/api_collections"
+	contTemplates "github.com/ortizdavid/dotnet-tpl/templates/api/controllers"
 	dbTemplates "github.com/ortizdavid/dotnet-tpl/templates/api/database"
-	fileTemplates "github.com/ortizdavid/dotnet-tpl/templates/api/files"
 	extTemplates "github.com/ortizdavid/dotnet-tpl/templates/api/extensions"
+	fileTemplates "github.com/ortizdavid/dotnet-tpl/templates/api/files"
 	helperTemplates "github.com/ortizdavid/dotnet-tpl/templates/api/helpers"
 	modelTemplates "github.com/ortizdavid/dotnet-tpl/templates/api/models"
 	repoTemplates "github.com/ortizdavid/dotnet-tpl/templates/api/repositories"
-	contTemplates "github.com/ortizdavid/dotnet-tpl/templates/api/controllers"
 	"github.com/ortizdavid/go-nopain/filemanager"
 )
 
@@ -47,6 +48,7 @@ func (ApiGenerator) Generate(templateType string) error {
 	readmeMdFile := "README.md"
 	appsettingsFile := "appsettings.json"
 	packagesFile := "packages.sh"
+	packagesCsProjFile := helpers.GetCurrentFolder() + ".csproj"
 	programCsFile := "Program.cs"
 
 	// Files inner folder ------------------------------
@@ -101,6 +103,7 @@ func (ApiGenerator) Generate(templateType string) error {
 	fileManager.CreateSingleFile(".", readmeMdFile)
 	fileManager.CreateSingleFile(".", appsettingsFile)
 	fileManager.CreateSingleFile(".", packagesFile)
+	fileManager.CreateSingleFile(".", packagesCsProjFile)
 	fileManager.CreateSingleFile(".", programCsFile)
 
 	// Create folders
@@ -166,6 +169,7 @@ func (ApiGenerator) Generate(templateType string) error {
 	fileManager.WriteFile(".", readmeMdFile, apiTpl.ReadmeMd())
 	fileManager.WriteFile(".", appsettingsFile, apiTpl.Appsettings())
 	fileManager.WriteFile(".", packagesFile, apiTpl.Packages())
+	fileManager.WriteFile(".", packagesCsProjFile, apiTpl.PackagesCsProj())
 	fileManager.WriteFile(".", programCsFile, apiTpl.ProgramCs())
 	// Write to files from /_Api_Collections
 	fileManager.WriteFile(apiCollectionsFolder, postmanCollectionFile, colTpl.PostmanCollectionsJson())
