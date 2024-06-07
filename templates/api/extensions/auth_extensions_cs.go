@@ -1,12 +1,14 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiExtensionsTemplate) AuthExtensionsCs() string {
 return `using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Npgsql.Replication;
 
-namespace AspNetCoreRestApi.Extensions
+namespace `+helpers.GetCurrentFolder()+`.Extensions
 {
     public static class AuthExtensions
     {

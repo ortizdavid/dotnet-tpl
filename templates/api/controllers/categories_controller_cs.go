@@ -1,12 +1,14 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiControllersTemplate) CategoriesControllerCs() string {
-return `using Microsoft.AspNetCore.Mvc;
-using AspNetCoreRestApi.Repositories;
-using AspNetCoreRestApi.Models;
+	return `using Microsoft.AspNetCore.Mvc;
+using `+helpers.GetCurrentFolder()+`.Repositories;
+using `+helpers.GetCurrentFolder()+`.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace AspNetCoreRestApi.Controllers
+namespace ` + helpers.GetCurrentFolder() + `.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -177,5 +179,5 @@ namespace AspNetCoreRestApi.Controllers
     }
 }
 
-`	
+`
 }

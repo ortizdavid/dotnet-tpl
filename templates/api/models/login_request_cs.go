@@ -1,7 +1,9 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiModelsTemplate) LoginRequestCs() string {
-return `namespace AspNetCoreRestApi.Models
+return `namespace `+helpers.GetCurrentFolder()+`.Models
 {
     public class LoginRequest
     {

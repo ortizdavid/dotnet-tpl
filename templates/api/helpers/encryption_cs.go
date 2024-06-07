@@ -1,10 +1,12 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiHelpersTemplate) EncryptionCs() string {
-return `using System;
+	return `using System;
 using System.Security.Cryptography;
 
-namespace AspNetCoreRestApi.Helpers
+namespace ` + helpers.GetCurrentFolder() + `.Helpers
 {
     public class Encryption
     {

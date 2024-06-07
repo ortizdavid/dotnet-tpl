@@ -1,7 +1,9 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiHelpersTemplate) FileUploaderCs() string {
-return `namespace AspNetCoreRestApi.Helpers
+return `namespace `+helpers.GetCurrentFolder()+`.Helpers
 {
     public class FileUploader
     {

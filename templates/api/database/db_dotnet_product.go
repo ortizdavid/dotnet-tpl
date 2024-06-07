@@ -93,8 +93,5 @@ FROM products pr
 JOIN categories ca ON(ca.category_id = pr.category_id)
 JOIN suppliers su ON(su.supplier_id = pr.product_id)
 ORDER BY pr.created_at DESC;
-
-
-
 `
 }

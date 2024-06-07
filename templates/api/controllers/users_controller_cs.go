@@ -1,12 +1,14 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiControllersTemplate) UsersControllerCs() string {
-return `using AspNetCoreRestApi.Helpers;
-using AspNetCoreRestApi.Models;
-using AspNetCoreRestApi.Repositories;
+	return `using ` + helpers.GetCurrentFolder() + `.Helpers;
+using ` + helpers.GetCurrentFolder() + `.Models;
+using ` + helpers.GetCurrentFolder() + `.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AspNetCoreRestApi.Controllers
+namespace ` + helpers.GetCurrentFolder() + `.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -189,5 +191,5 @@ namespace AspNetCoreRestApi.Controllers
         }
     }
 }
-`	
+`
 }

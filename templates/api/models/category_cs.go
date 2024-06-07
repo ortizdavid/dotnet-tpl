@@ -1,11 +1,13 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiModelsTemplate) CategoryCs() string {
 return `using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using AspNetCoreRestApi.Helpers;
+using `+helpers.GetCurrentFolder()+`.Helpers;
 
-namespace AspNetCoreRestApi.Models
+namespace `+helpers.GetCurrentFolder()+`.Models
 {
     /* category_name VARCHAR(50) UNIQUE,
     description VARCHAR(150),*/

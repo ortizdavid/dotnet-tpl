@@ -1,7 +1,9 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiHelpersTemplate) CapacityUnitCs() string  {
-return `namespace AspNetCoreRestApi.Helpers
+return `namespace `+helpers.GetCurrentFolder()+`.Helpers
 {
     public class CapacityUnit
     {

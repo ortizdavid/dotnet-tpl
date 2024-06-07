@@ -1,11 +1,13 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiRepositoriesTemplate) IRepositoryCs() string {
 return `using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AspNetCoreRestApi.Repositories
+namespace `+helpers.GetCurrentFolder()+`.Repositories
 {
     public interface IRepository<T> where T : class
     {

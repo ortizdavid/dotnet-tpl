@@ -1,10 +1,12 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiModelsTemplate) ImageCs() string {
 return `using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AspNetCoreRestApi.Models
+namespace `+helpers.GetCurrentFolder()+`.Models
 {
     [Table("images")]
     public class Image

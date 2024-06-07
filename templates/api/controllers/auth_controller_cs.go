@@ -1,16 +1,18 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiControllersTemplate) AuthControllerCs() string {
 return `using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using AspNetCoreRestApi.Helpers;
-using AspNetCoreRestApi.Models;
-using AspNetCoreRestApi.Repositories;
+using `+helpers.GetCurrentFolder()+`.Helpers;
+using `+helpers.GetCurrentFolder()+`.Models;
+using `+helpers.GetCurrentFolder()+`.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
-namespace AspNetCoreRestApi.Controllers
+namespace `+helpers.GetCurrentFolder()+`.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

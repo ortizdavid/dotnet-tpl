@@ -1,9 +1,11 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiModelsTemplate) ProductDataCs() string {
 return `using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AspNetCoreRestApi.Models
+namespace `+helpers.GetCurrentFolder()+`.Models
 {
     public class ProductData
     {   

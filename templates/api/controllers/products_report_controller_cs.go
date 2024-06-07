@@ -1,16 +1,18 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiControllersTemplate) ProductsReportControllerCs() string {
-return `using Microsoft.AspNetCore.Mvc;
+	return `using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using CsvHelper;
 using System.Globalization;
-using AspNetCoreRestApi.Repositories;
-using AspNetCoreRestApi.Models;
+using ` + helpers.GetCurrentFolder() + `.Repositories;
+using ` + helpers.GetCurrentFolder() + `.Models;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 
-namespace AspNetCoreRestApi.Controllers
+namespace ` + helpers.GetCurrentFolder() + `.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -136,5 +138,5 @@ namespace AspNetCoreRestApi.Controllers
         }
     }
 }
-`	
+`
 }

@@ -1,9 +1,11 @@
 package templates
 
-func (ApiRepositoriesTemplate) ProductReportRepositoryCs() string {
-return `using AspNetCoreRestApi.Models;
+import "github.com/ortizdavid/dotnet-tpl/helpers"
 
-namespace AspNetCoreRestApi.Repositories
+func (ApiRepositoriesTemplate) ProductReportRepositoryCs() string {
+return `using `+helpers.GetCurrentFolder()+`.Models;
+
+namespace `+helpers.GetCurrentFolder()+`.Repositories
 {
     public class ProductReportRepository 
     {

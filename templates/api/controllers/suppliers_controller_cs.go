@@ -1,11 +1,13 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiControllersTemplate) SuppliersControllerCs() string {
-return `using AspNetCoreRestApi.Models;
-using AspNetCoreRestApi.Repositories;
+	return `using ` + helpers.GetCurrentFolder() + `.Models;
+using ` + helpers.GetCurrentFolder() + `.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AspNetCoreRestApi.Controllers
+namespace ` + helpers.GetCurrentFolder() + `.Controllers
 {
     [Route("api/[controller]")]
     public class SuppliersController : ControllerBase
@@ -209,5 +211,5 @@ namespace AspNetCoreRestApi.Controllers
         }
     }
 }
-`	
+`
 }

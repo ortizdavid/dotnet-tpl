@@ -1,13 +1,15 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiControllersTemplate) ProductsControllerCs() string {
-return `using Microsoft.AspNetCore.Mvc;
-using AspNetCoreRestApi.Repositories;
-using AspNetCoreRestApi.Models;
-using AspNetCoreRestApi.Helpers;
+	return `using Microsoft.AspNetCore.Mvc;
+using ` + helpers.GetCurrentFolder() + `.Repositories;
+using ` + helpers.GetCurrentFolder() + `.Models;
+using ` + helpers.GetCurrentFolder() + `.Helpers;
 using System.Xml.Serialization;
 
-namespace AspNetCoreRestApi.Controllers
+namespace ` + helpers.GetCurrentFolder() + `.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -281,5 +283,5 @@ namespace AspNetCoreRestApi.Controllers
     }
 }
 
-`	
+`
 }

@@ -1,9 +1,11 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiTemplate) ProgramCs() string {
-return`
-using AspNetCoreRestApi.Extensions;
-using AspNetCoreRestApi.Models;
+	return `
+using ` + helpers.GetCurrentFolder() + `.Extensions;
+using ` + helpers.GetCurrentFolder() + `.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -65,5 +67,5 @@ internal class Program
         app.Run();
     }
 }
-`	
+`
 }

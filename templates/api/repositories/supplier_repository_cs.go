@@ -1,10 +1,12 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiRepositoriesTemplate) SupplierRepositoryCs() string {
-return `using AspNetCoreRestApi.Models;
+return `using `+helpers.GetCurrentFolder()+`.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace AspNetCoreRestApi.Repositories
+namespace `+helpers.GetCurrentFolder()+`.Repositories
 {
     public class SupplierRepository : IRepository<Supplier>
     {

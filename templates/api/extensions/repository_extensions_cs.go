@@ -1,10 +1,12 @@
 package templates
 
-func (ApiExtensionsTemplate) RepositoryExtensionsCs() string {
-return `using Microsoft.Extensions.DependencyInjection;
-using AspNetCoreRestApi.Repositories;
+import "github.com/ortizdavid/dotnet-tpl/helpers"
 
-namespace AspNetCoreRestApi.Extensions
+func (ApiExtensionsTemplate) RepositoryExtensionsCs() string {
+	return `using Microsoft.Extensions.DependencyInjection;
+using ` + helpers.GetCurrentFolder() + `.Repositories;
+
+namespace ` + helpers.GetCurrentFolder() + `.Extensions
 {
     public static class RepositoryExtensions
     {
@@ -19,5 +21,5 @@ namespace AspNetCoreRestApi.Extensions
         }
     }
 }
-`	
+`
 }

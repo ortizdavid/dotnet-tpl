@@ -1,5 +1,7 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiTemplate) ReadmeMd() string {
     return `# ASP.NET Core REST API
 
@@ -45,7 +47,6 @@ The project focuses on managing products, providing a comprehensive set of featu
 
   `+cloneRepositoryStr()+`
 
-
 4. **Install dependencies:**
 
     Restore the .NET dependencies:
@@ -66,15 +67,17 @@ The project focuses on managing products, providing a comprehensive set of featu
 `
 }
 
-
 func cloneRepositoryStr() string {
-	return "```sh\ndotnet run\n```"
+	str := "\t```sh\n"
+	str += "\tgit clone https://github.com/your-username/"+helpers.GetCurrentFolder()+".git\n"
+	str += "\tcd "+helpers.GetCurrentFolder()+"\n\t```"
+	return str
 }
 
 func installDependenciesStr() string {
-	return "```sh\ndotnet run\n```"
+	return "```sh\n\tdotnet restore\n\t```"
 }
 
 func runProjectStr() string {
-	return "```sh\ndotnet run\n```"
+	return "```sh\n\tdotnet run\n\t```"
 }

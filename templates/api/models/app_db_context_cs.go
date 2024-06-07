@@ -1,9 +1,11 @@
 package templates
 
+import "github.com/ortizdavid/dotnet-tpl/helpers"
+
 func (ApiModelsTemplate) AppDbContextCs() string {
 return `using Microsoft.EntityFrameworkCore;
 
-namespace AspNetCoreRestApi.Models
+namespace `+helpers.GetCurrentFolder()+`.Models
 {
     public class AppDbContext : DbContext
     {
